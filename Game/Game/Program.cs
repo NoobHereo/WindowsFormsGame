@@ -14,7 +14,7 @@ namespace Game
         [STAThread]
         static void Main()
         {
-            bool testing = true;
+            bool testing = false;
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

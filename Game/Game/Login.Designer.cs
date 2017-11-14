@@ -110,6 +110,7 @@
             this.linkLabel_RegisterHelp.TabIndex = 7;
             this.linkLabel_RegisterHelp.TabStop = true;
             this.linkLabel_RegisterHelp.Text = "Don\'t have an account? Click here to register";
+            this.linkLabel_RegisterHelp.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel_RegisterHelp_LinkClicked);
             // 
             // Login
             // 
@@ -126,7 +127,6 @@
             this.Controls.Add(this.label_Username);
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
-            this.Text = "Login";
             this.ResumeLayout(false);
             this.PerformLayout();
 

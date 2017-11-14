@@ -28,5 +28,12 @@ namespace Game
             Main.instance.ActivatePlayButton();
             this.Close();
         }
+
+        private void linkLabel_RegisterHelp_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Register registerWindow = new Register();
+            registerWindow.Location = Location;
+            registerWindow.ShowDialog();
+        }
     }
 }
