@@ -1,0 +1,121 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Game
+{
+    public partial class GameWindow : Form
+    {
+        public GameWindow()
+        {
+            InitializeComponent();
+        }
+
+        private enum Direction
+        {
+            Up = 1 << 0,
+            Down = 1 << 1,
+            Right = 1 << 2,
+            Left = 1 << 3
+        }
+        private Direction _direction;
+
+        private void GameWindow_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch(e.KeyCode)
+            {
+                case Keys.W:
+                    _direction |= Direction.Up;
+                    break;
+                case Keys.Up:
+                    _direction |= Direction.Up;
+                    break;
+
+                case Keys.S:
+                    _direction |= Direction.Down;
+                    break;
+                case Keys.Down:
+                    _direction |= Direction.Down;
+                    break;
+
+                case Keys.D:
+                    _direction |= Direction.Right;
+                    break;
+                case Keys.Right:
+                    _direction |= Direction.Right;
+                    break;
+
+                case Keys.A:
+                    _direction |= Direction.Left;
+                    break;
+                case Keys.Left:
+                    _direction |= Direction.Left;
+                    break;
+            }
+        }
+
+        private void GameWindow_KeyUp(object sender, KeyEventArgs e)
+        {
+            switch(e.KeyCode)
+            {
+                case Keys.W:
+                    _direction &= ~Direction.Up;
+                    break;
+                case Keys.Up:
+                    _direction &= ~Direction.Up;
+                    break;
+
+                case Keys.S:
+                    _direction &= ~Direction.Down;
+                    break;
+                case Keys.Down:
+                    _direction &= ~Direction.Down;
+                    break;
+
+                case Keys.D:
+                    _direction &= ~Direction.Right;
+                    break;
+                case Keys.Right:
+                    _direction &= ~Direction.Right;
+                    break;
+
+                case Keys.A:
+                    _direction &= ~Direction.Left;
+                    break;
+                case Keys.Left:
+                    _direction &= ~Direction.Left;
+                    break;
+            }
+        }
+
+
+        private void timer_Direction_Tick(object sender, EventArgs e)
+        {
+            if ((_direction & Direction.Up) == Direction.Up)
+            {
+                pictureBox_PlayerModel.Top--;
+            }
+
+            if ((_direction & Direction.Down) == Direction.Down)
+            {
+                pictureBox_PlayerModel.Top++;
+            }
+
+            if ((_direction & Direction.Right) == Direction.Right)
+            {
+                pictureBox_PlayerModel.Left++;
+            }
+
+            if ((_direction & Direction.Left) == Direction.Left)
+            {
+                pictureBox_PlayerModel.Left--;
+                }
+            }
+        }
+    }
