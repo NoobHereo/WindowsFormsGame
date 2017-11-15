@@ -99,22 +99,26 @@ namespace Game
         {
             if ((_direction & Direction.Up) == Direction.Up)
             {
-                pictureBox_PlayerModel.Top--;
+                if (pictureBox_PlayerModel.Location.Y > 0)      
+                    pictureBox_PlayerModel.Top--;                                        
             }
 
             if ((_direction & Direction.Down) == Direction.Down)
             {
+                if (pictureBox_PlayerModel.Location.Y < ClientSize.Height - pictureBox_PlayerModel.Height)
                 pictureBox_PlayerModel.Top++;
             }
 
             if ((_direction & Direction.Right) == Direction.Right)
-            {
+            {               
+                if (pictureBox_PlayerModel.Location.X < ClientSize.Width - pictureBox_PlayerModel.Width)
                 pictureBox_PlayerModel.Left++;
             }
 
             if ((_direction & Direction.Left) == Direction.Left)
             {
-                pictureBox_PlayerModel.Left--;
+                if (pictureBox_PlayerModel.Location.X > 0)
+                    pictureBox_PlayerModel.Left--;
                 }
             }
         }
