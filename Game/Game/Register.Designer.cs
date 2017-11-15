@@ -52,6 +52,7 @@
             this.textBox_Password.Name = "textBox_Password";
             this.textBox_Password.Size = new System.Drawing.Size(100, 20);
             this.textBox_Password.TabIndex = 1;
+            this.textBox_Password.UseSystemPasswordChar = true;
             // 
             // label_Username
             // 
@@ -86,6 +87,7 @@
             this.textBox_RepeatPassword.Name = "textBox_RepeatPassword";
             this.textBox_RepeatPassword.Size = new System.Drawing.Size(100, 20);
             this.textBox_RepeatPassword.TabIndex = 5;
+            this.textBox_RepeatPassword.UseSystemPasswordChar = true;
             // 
             // btn_Cancel
             // 
@@ -105,6 +107,7 @@
             this.btn_Register.TabIndex = 7;
             this.btn_Register.Text = "Register";
             this.btn_Register.UseVisualStyleBackColor = true;
+            this.btn_Register.Click += new System.EventHandler(this.btn_Register_Click);
             // 
             // label1
             // 

@@ -52,6 +52,7 @@
     <Compile Include="CharacterScreen.Designer.cs">
       <DependentUpon>CharacterScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="Database\Database.cs" />
     <Compile Include="GameWindow.cs">
       <SubType>Form</SubType>
     </Compile>
