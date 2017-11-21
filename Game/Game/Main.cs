@@ -34,9 +34,11 @@ namespace Game
         private void btn_Play_Click(object sender, EventArgs e)
         {
             Hide();
-            CharacterScreen charScreenWindow = new CharacterScreen();
-            charScreenWindow.Location = Location;
-            charScreenWindow.ShowDialog();
+
+            GameWindow gameScreen = new GameWindow();
+            gameScreen.Location = Location;
+            gameScreen.ShowDialog();
+            
         }
 
         private void btn_Login_Click(object sender, EventArgs e)

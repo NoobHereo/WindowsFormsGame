@@ -12,9 +12,13 @@ namespace Game
 {
     public partial class GameWindow : Form
     {
+        public static GameWindow instance;
+
         public GameWindow()
         {
             InitializeComponent();
+            instance = this;
+            timer_Enemies.Interval = Settings.interval;
         }
 
         private enum Direction
@@ -97,6 +101,7 @@ namespace Game
 
         private void timer_Direction_Tick(object sender, EventArgs e)
         {
+
             if ((_direction & Direction.Up) == Direction.Up)
             {
                 if (pictureBox_PlayerModel.Location.Y > 0)      
@@ -121,5 +126,21 @@ namespace Game
                     pictureBox_PlayerModel.Left--;
                 }
             }
+
+      
+        private void timer_Enemies_Tick(object sender, EventArgs e)
+        {
+            int speed_left = 1;
+            int speed_bottom = 2;
+            int speed_right = 3;
+            int speed_top = 4;
+
+
+
+            pictureBox_EnemyLeft.Left += speed_left;
+            pictureBox_EnemyBottom.Top -= speed_bottom;
+            pictureBox_EnemyRight.Left -= speed_right;
+            pictureBox_EnemyTop.Top += speed_top;
         }
+    }
     }
