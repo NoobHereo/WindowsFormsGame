@@ -53,6 +53,12 @@ namespace Game
 
         private void btn_Apply_Click(object sender, EventArgs e)
         {
+            if (comboBox_Difficulty.Text == "")
+            {
+                MessageBox.Show("You must choose a difficulty before playing", "error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            Main.instance.ActivatePlayButton();
             string difficultySelected = comboBox_Difficulty.Text;
 
             SetDifficulty(difficultySelected);

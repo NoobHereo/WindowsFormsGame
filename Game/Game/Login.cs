@@ -25,7 +25,7 @@ namespace Game
         private void btn_Login_Click(object sender, EventArgs e)
         {
             //login
-            Main.instance.ActivatePlayButton();
+            //Main.instance.ActivatePlayButton();
             this.Close();
         }
 

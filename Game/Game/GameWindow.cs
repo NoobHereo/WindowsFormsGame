@@ -134,13 +134,47 @@ namespace Game
             int speed_bottom = 2;
             int speed_right = 3;
             int speed_top = 4;
+            int speed_cornors = 1;
 
 
 
-            pictureBox_EnemyLeft.Left += speed_left;
+
+            #region Left Enemy
+            if (pictureBox_EnemyLeft.Bounds.IntersectsWith(pictureBox_PlayerModel.Bounds))            
+                pictureBox_EnemyLeft.Left -= 5;            
+            else
+                pictureBox_EnemyLeft.Left += speed_left;
+            #endregion
+
+            #region Top Enemy
+            if (pictureBox_EnemyTop.Bounds.IntersectsWith(pictureBox_PlayerModel.Bounds))
+                pictureBox_EnemyTop.Top -= 12;
+            else
+                pictureBox_EnemyTop.Top += speed_left;
+            #endregion
+
+            if (pictureBox_EnemyBottom.Bounds.IntersectsWith(pictureBox_PlayerModel.Bounds))
+                pictureBox_EnemyBottom.Top += 6;
+            else
+                pictureBox_EnemyBottom.Top -= speed_left;
+
+            if (pictureBox_EnemyRight.Bounds.IntersectsWith(pictureBox_PlayerModel.Bounds))
+                pictureBox_EnemyRight.Left += 7;
+            else
+                pictureBox_EnemyRight.Left -= speed_left;
+
+
+
+
             pictureBox_EnemyBottom.Top -= speed_bottom;
             pictureBox_EnemyRight.Left -= speed_right;
             pictureBox_EnemyTop.Top += speed_top;
+
+            pictureBox_EnemyBRC.Top -= speed_cornors;
+            pictureBox_EnemyBRC.Left -= speed_cornors;
+
+            pictureBox_EnemyTLC.Top += speed_cornors;
+            pictureBox_EnemyTLC.Left += speed_cornors;
         }
     }
     }

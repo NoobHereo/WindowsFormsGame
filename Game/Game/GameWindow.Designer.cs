@@ -37,12 +37,16 @@
             this.pictureBox_EnemyBottom = new System.Windows.Forms.PictureBox();
             this.pictureBox_EnemyLeft = new System.Windows.Forms.PictureBox();
             this.timer_Enemies = new System.Windows.Forms.Timer(this.components);
+            this.pictureBox_EnemyBRC = new System.Windows.Forms.PictureBox();
+            this.pictureBox_EnemyTLC = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_PlayerModel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_EnemyRight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_EnemyTop)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_EnemyBottom)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_EnemyLeft)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_EnemyBRC)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_EnemyTLC)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox_PlayerModel
@@ -110,12 +114,32 @@
             this.timer_Enemies.Enabled = true;
             this.timer_Enemies.Tick += new System.EventHandler(this.timer_Enemies_Tick);
             // 
+            // pictureBox_EnemyBRC
+            // 
+            this.pictureBox_EnemyBRC.BackColor = System.Drawing.Color.Red;
+            this.pictureBox_EnemyBRC.Location = new System.Drawing.Point(704, 546);
+            this.pictureBox_EnemyBRC.Name = "pictureBox_EnemyBRC";
+            this.pictureBox_EnemyBRC.Size = new System.Drawing.Size(40, 44);
+            this.pictureBox_EnemyBRC.TabIndex = 6;
+            this.pictureBox_EnemyBRC.TabStop = false;
+            // 
+            // pictureBox_EnemyTLC
+            // 
+            this.pictureBox_EnemyTLC.BackColor = System.Drawing.Color.Red;
+            this.pictureBox_EnemyTLC.Location = new System.Drawing.Point(12, 12);
+            this.pictureBox_EnemyTLC.Name = "pictureBox_EnemyTLC";
+            this.pictureBox_EnemyTLC.Size = new System.Drawing.Size(40, 44);
+            this.pictureBox_EnemyTLC.TabIndex = 7;
+            this.pictureBox_EnemyTLC.TabStop = false;
+            // 
             // GameWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(756, 602);
+            this.Controls.Add(this.pictureBox_EnemyTLC);
+            this.Controls.Add(this.pictureBox_EnemyBRC);
             this.Controls.Add(this.pictureBox_EnemyLeft);
             this.Controls.Add(this.pictureBox_EnemyBottom);
             this.Controls.Add(this.pictureBox_EnemyTop);
@@ -134,6 +158,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_EnemyTop)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_EnemyBottom)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_EnemyLeft)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_EnemyBRC)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_EnemyTLC)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -148,5 +174,7 @@
         private System.Windows.Forms.PictureBox pictureBox_EnemyBottom;
         private System.Windows.Forms.PictureBox pictureBox_EnemyLeft;
         private System.Windows.Forms.Timer timer_Enemies;
+        private System.Windows.Forms.PictureBox pictureBox_EnemyBRC;
+        private System.Windows.Forms.PictureBox pictureBox_EnemyTLC;
     }
 }
