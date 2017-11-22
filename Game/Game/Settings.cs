@@ -27,19 +27,19 @@ namespace Game
             switch (difficulty)
             {
                 case "Easy":
-                    interval = 120;
+                    interval = 320;
                     break;
 
                 case "Medium":
-                    interval = 90;
+                    interval = 220;
                     break;
 
                 case "Hard":
-                    interval = 50;
+                    interval = 100;
                     break;
 
                 default:
-                    interval = 120;
+                    interval = 320;
                     break;
             }
 

@@ -32,16 +32,18 @@
             this.pictureBox_PlayerModel = new System.Windows.Forms.PictureBox();
             this.timer_Direction = new System.Windows.Forms.Timer(this.components);
             this.pictureBox_EnemyRight = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox_TowerModel = new System.Windows.Forms.PictureBox();
             this.pictureBox_EnemyTop = new System.Windows.Forms.PictureBox();
             this.pictureBox_EnemyBottom = new System.Windows.Forms.PictureBox();
             this.pictureBox_EnemyLeft = new System.Windows.Forms.PictureBox();
             this.timer_Enemies = new System.Windows.Forms.Timer(this.components);
             this.pictureBox_EnemyBRC = new System.Windows.Forms.PictureBox();
             this.pictureBox_EnemyTLC = new System.Windows.Forms.PictureBox();
+            this.timer_EnemyMoveBack = new System.Windows.Forms.Timer(this.components);
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_PlayerModel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_EnemyRight)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_TowerModel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_EnemyTop)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_EnemyBottom)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_EnemyLeft)).BeginInit();
@@ -73,14 +75,14 @@
             this.pictureBox_EnemyRight.TabIndex = 1;
             this.pictureBox_EnemyRight.TabStop = false;
             // 
-            // pictureBox2
+            // pictureBox_TowerModel
             // 
-            this.pictureBox2.BackColor = System.Drawing.Color.Lime;
-            this.pictureBox2.Location = new System.Drawing.Point(361, 247);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(68, 65);
-            this.pictureBox2.TabIndex = 2;
-            this.pictureBox2.TabStop = false;
+            this.pictureBox_TowerModel.BackColor = System.Drawing.Color.Lime;
+            this.pictureBox_TowerModel.Location = new System.Drawing.Point(361, 247);
+            this.pictureBox_TowerModel.Name = "pictureBox_TowerModel";
+            this.pictureBox_TowerModel.Size = new System.Drawing.Size(68, 65);
+            this.pictureBox_TowerModel.TabIndex = 2;
+            this.pictureBox_TowerModel.TabStop = false;
             // 
             // pictureBox_EnemyTop
             // 
@@ -112,6 +114,7 @@
             // timer_Enemies
             // 
             this.timer_Enemies.Enabled = true;
+            this.timer_Enemies.Interval = 300;
             this.timer_Enemies.Tick += new System.EventHandler(this.timer_Enemies_Tick);
             // 
             // pictureBox_EnemyBRC
@@ -126,11 +129,25 @@
             // pictureBox_EnemyTLC
             // 
             this.pictureBox_EnemyTLC.BackColor = System.Drawing.Color.Red;
-            this.pictureBox_EnemyTLC.Location = new System.Drawing.Point(12, 12);
+            this.pictureBox_EnemyTLC.Location = new System.Drawing.Point(56, 12);
             this.pictureBox_EnemyTLC.Name = "pictureBox_EnemyTLC";
             this.pictureBox_EnemyTLC.Size = new System.Drawing.Size(40, 44);
             this.pictureBox_EnemyTLC.TabIndex = 7;
             this.pictureBox_EnemyTLC.TabStop = false;
+            // 
+            // timer_EnemyMoveBack
+            // 
+            this.timer_EnemyMoveBack.Enabled = true;
+            this.timer_EnemyMoveBack.Tick += new System.EventHandler(this.timer_EnemyMoveBack_Tick);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Location = new System.Drawing.Point(12, 448);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(242, 142);
+            this.groupBox1.TabIndex = 8;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "groupBox1";
             // 
             // GameWindow
             // 
@@ -138,12 +155,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(756, 602);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.pictureBox_EnemyTLC);
             this.Controls.Add(this.pictureBox_EnemyBRC);
             this.Controls.Add(this.pictureBox_EnemyLeft);
             this.Controls.Add(this.pictureBox_EnemyBottom);
             this.Controls.Add(this.pictureBox_EnemyTop);
-            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.pictureBox_TowerModel);
             this.Controls.Add(this.pictureBox_EnemyRight);
             this.Controls.Add(this.pictureBox_PlayerModel);
             this.ForeColor = System.Drawing.SystemColors.ControlLightLight;
@@ -154,7 +172,7 @@
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.GameWindow_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_PlayerModel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_EnemyRight)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_TowerModel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_EnemyTop)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_EnemyBottom)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_EnemyLeft)).EndInit();
@@ -169,12 +187,14 @@
         private System.Windows.Forms.PictureBox pictureBox_PlayerModel;
         private System.Windows.Forms.Timer timer_Direction;
         private System.Windows.Forms.PictureBox pictureBox_EnemyRight;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pictureBox_TowerModel;
         private System.Windows.Forms.PictureBox pictureBox_EnemyTop;
         private System.Windows.Forms.PictureBox pictureBox_EnemyBottom;
         private System.Windows.Forms.PictureBox pictureBox_EnemyLeft;
         private System.Windows.Forms.Timer timer_Enemies;
         private System.Windows.Forms.PictureBox pictureBox_EnemyBRC;
         private System.Windows.Forms.PictureBox pictureBox_EnemyTLC;
+        private System.Windows.Forms.Timer timer_EnemyMoveBack;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }

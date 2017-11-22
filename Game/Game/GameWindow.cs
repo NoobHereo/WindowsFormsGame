@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using System.Threading;
+
 namespace Game
 {
     public partial class GameWindow : Form
@@ -137,44 +139,88 @@ namespace Game
             int speed_cornors = 1;
 
 
-
-
             #region Left Enemy
-            if (pictureBox_EnemyLeft.Bounds.IntersectsWith(pictureBox_PlayerModel.Bounds))            
-                pictureBox_EnemyLeft.Left -= 5;            
+            if (pictureBox_EnemyLeft.Bounds.IntersectsWith(pictureBox_PlayerModel.Bounds))
+                pictureBox_EnemyLeft.Location = new Point(12, 268);
+            if (pictureBox_EnemyLeft.Bounds.IntersectsWith(pictureBox_TowerModel.Bounds))
+                pictureBox_EnemyLeft.Location = new Point(12, 268);
             else
                 pictureBox_EnemyLeft.Left += speed_left;
             #endregion
 
             #region Top Enemy
             if (pictureBox_EnemyTop.Bounds.IntersectsWith(pictureBox_PlayerModel.Bounds))
-                pictureBox_EnemyTop.Top -= 12;
+                pictureBox_EnemyTop.Location = new Point(371, 12);
+            if (pictureBox_EnemyTop.Bounds.IntersectsWith(pictureBox_TowerModel.Bounds))
+                pictureBox_EnemyTop.Location = new Point(371, 12);
             else
                 pictureBox_EnemyTop.Top += speed_left;
             #endregion
 
+            #region Bottom Enemy
+
             if (pictureBox_EnemyBottom.Bounds.IntersectsWith(pictureBox_PlayerModel.Bounds))
-                pictureBox_EnemyBottom.Top += 6;
+                pictureBox_EnemyBottom.Location = new Point(371, 546);
+            if (pictureBox_EnemyBottom.Bounds.IntersectsWith(pictureBox_TowerModel.Bounds))
+                pictureBox_EnemyBottom.Location = new Point(371, 546);
             else
                 pictureBox_EnemyBottom.Top -= speed_left;
+            #endregion
 
+            #region Right Enemy
             if (pictureBox_EnemyRight.Bounds.IntersectsWith(pictureBox_PlayerModel.Bounds))
-                pictureBox_EnemyRight.Left += 7;
+                pictureBox_EnemyRight.Location = new Point(704, 258);
+            if (pictureBox_EnemyRight.Bounds.IntersectsWith(pictureBox_TowerModel.Bounds))
+                pictureBox_EnemyRight.Location = new Point(704, 258);
             else
                 pictureBox_EnemyRight.Left -= speed_left;
+            #endregion
 
+            #region Left Top Cornor Enemy
+            if (pictureBox_EnemyTLC.Bounds.IntersectsWith(pictureBox_PlayerModel.Bounds))
+            {
+                pictureBox_EnemyTLC.Location = new Point(56, 12);
+            }
+            if (pictureBox_EnemyTLC.Bounds.IntersectsWith(pictureBox_TowerModel.Bounds))
+            {
+                pictureBox_EnemyTLC.Location = new Point(56, 12);
+            }
+            else
+                 {
+                    pictureBox_EnemyTLC.Top += speed_cornors;
+                     pictureBox_EnemyTLC.Left += speed_cornors;
+                 }
+            #endregion
 
+            #region Bottom Right Cornor Enemy
+            if (pictureBox_EnemyBRC.Bounds.IntersectsWith(pictureBox_PlayerModel.Bounds))
+            { 
+                pictureBox_EnemyBRC.Location = new Point(704, 546);
+            }
+            if (pictureBox_EnemyBRC.Bounds.IntersectsWith(pictureBox_TowerModel.Bounds))
+            {
+                pictureBox_EnemyBRC.Location = new Point(704, 546);
+            }
+            else
+            {
+                pictureBox_EnemyBRC.Top -= speed_cornors;
+                pictureBox_EnemyBRC.Left -= speed_cornors;
+            }
+            #endregion
 
 
             pictureBox_EnemyBottom.Top -= speed_bottom;
             pictureBox_EnemyRight.Left -= speed_right;
             pictureBox_EnemyTop.Top += speed_top;
 
-            pictureBox_EnemyBRC.Top -= speed_cornors;
-            pictureBox_EnemyBRC.Left -= speed_cornors;
 
-            pictureBox_EnemyTLC.Top += speed_cornors;
-            pictureBox_EnemyTLC.Left += speed_cornors;
+
+
+        }
+
+        private void timer_EnemyMoveBack_Tick(object sender, EventArgs e)
+        {
+
         }
     }
     }
