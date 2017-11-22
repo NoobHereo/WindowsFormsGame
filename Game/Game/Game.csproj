@@ -53,12 +53,6 @@
     <Compile Include="GameWindow.Designer.cs">
       <DependentUpon>GameWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="Login.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Login.Designer.cs">
-      <DependentUpon>Login.cs</DependentUpon>
-    </Compile>
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,9 +75,6 @@
     </Compile>
     <EmbeddedResource Include="GameWindow.resx">
       <DependentUpon>GameWindow.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Login.resx">
-      <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
@@ -120,6 +111,11 @@
     <Folder Include="Database\data\Accounts\" />
     <Folder Include="Database\data\Highscores\" />
     <Folder Include="Database\data\Stats\" />
+    <Folder Include="Sound\Effects\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Sound\Music\game_screen.wav" />
+    <Content Include="Sound\Music\main_screen.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -31,8 +31,6 @@
             this.btn_Play = new System.Windows.Forms.Button();
             this.btn_Settings = new System.Windows.Forms.Button();
             this.btn_Quit = new System.Windows.Forms.Button();
-            this.label_LoggedIn = new System.Windows.Forms.Label();
-            this.btn_Login = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btn_Play
@@ -66,47 +64,23 @@
             this.btn_Quit.UseVisualStyleBackColor = true;
             this.btn_Quit.Click += new System.EventHandler(this.btn_Quit_Click);
             // 
-            // label_LoggedIn
-            // 
-            this.label_LoggedIn.AutoSize = true;
-            this.label_LoggedIn.Location = new System.Drawing.Point(400, 9);
-            this.label_LoggedIn.Name = "label_LoggedIn";
-            this.label_LoggedIn.Size = new System.Drawing.Size(70, 13);
-            this.label_LoggedIn.TabIndex = 3;
-            this.label_LoggedIn.Text = "Not logged in";
-            // 
-            // btn_Login
-            // 
-            this.btn_Login.Location = new System.Drawing.Point(476, 4);
-            this.btn_Login.Name = "btn_Login";
-            this.btn_Login.Size = new System.Drawing.Size(75, 23);
-            this.btn_Login.TabIndex = 4;
-            this.btn_Login.Text = "Login";
-            this.btn_Login.UseVisualStyleBackColor = true;
-            this.btn_Login.Click += new System.EventHandler(this.btn_Login_Click);
-            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(563, 480);
-            this.Controls.Add(this.btn_Login);
-            this.Controls.Add(this.label_LoggedIn);
             this.Controls.Add(this.btn_Quit);
             this.Controls.Add(this.btn_Settings);
             this.Controls.Add(this.btn_Play);
             this.Name = "Main";
             this.Text = "Game";
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
         private System.Windows.Forms.Button btn_Settings;
         private System.Windows.Forms.Button btn_Quit;
-        private System.Windows.Forms.Label label_LoggedIn;
-        private System.Windows.Forms.Button btn_Login;
         public System.Windows.Forms.Button btn_Play;
     }
 }

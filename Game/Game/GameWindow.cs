@@ -9,18 +9,27 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using System.Threading;
+using System.Media;
 
 namespace Game
 {
     public partial class GameWindow : Form
     {
         public static GameWindow instance;
+        int points = 0;
+        int towerHealth = 100;
 
         public GameWindow()
         {
             InitializeComponent();
             instance = this;
             timer_Enemies.Interval = Settings.interval;
+            int towerHealthMAX = progressBar_TowerHealth.Maximum;
+
+            label_Points.Text = "Points: " + points.ToString();
+            label_HealthNumeric.Text = towerHealth + "/" + towerHealthMAX.ToString();
+
+            playMusic();
         }
 
         private enum Direction
@@ -141,37 +150,65 @@ namespace Game
 
             #region Left Enemy
             if (pictureBox_EnemyLeft.Bounds.IntersectsWith(pictureBox_PlayerModel.Bounds))
+            {
                 pictureBox_EnemyLeft.Location = new Point(12, 268);
+            }
+                
             if (pictureBox_EnemyLeft.Bounds.IntersectsWith(pictureBox_TowerModel.Bounds))
+            {
                 pictureBox_EnemyLeft.Location = new Point(12, 268);
+                DamageTower();
+            }
             else
                 pictureBox_EnemyLeft.Left += speed_left;
             #endregion
 
             #region Top Enemy
             if (pictureBox_EnemyTop.Bounds.IntersectsWith(pictureBox_PlayerModel.Bounds))
+            {
                 pictureBox_EnemyTop.Location = new Point(371, 12);
+                points++;
+                label_Points.Text = "Points: " + points.ToString();
+            }
             if (pictureBox_EnemyTop.Bounds.IntersectsWith(pictureBox_TowerModel.Bounds))
+            {
                 pictureBox_EnemyTop.Location = new Point(371, 12);
+                DamageTower();
+            }          
             else
                 pictureBox_EnemyTop.Top += speed_left;
             #endregion
 
             #region Bottom Enemy
-
             if (pictureBox_EnemyBottom.Bounds.IntersectsWith(pictureBox_PlayerModel.Bounds))
+            {
                 pictureBox_EnemyBottom.Location = new Point(371, 546);
+                points++;
+                label_Points.Text = "Points: " + points.ToString();
+            }
             if (pictureBox_EnemyBottom.Bounds.IntersectsWith(pictureBox_TowerModel.Bounds))
+            {
                 pictureBox_EnemyBottom.Location = new Point(371, 546);
+                DamageTower();
+            }
+            
             else
                 pictureBox_EnemyBottom.Top -= speed_left;
             #endregion
 
             #region Right Enemy
             if (pictureBox_EnemyRight.Bounds.IntersectsWith(pictureBox_PlayerModel.Bounds))
+            {
                 pictureBox_EnemyRight.Location = new Point(704, 258);
+                points++;
+                label_Points.Text = "Points: " + points.ToString();
+            }           
             if (pictureBox_EnemyRight.Bounds.IntersectsWith(pictureBox_TowerModel.Bounds))
+            {
                 pictureBox_EnemyRight.Location = new Point(704, 258);
+                DamageTower();
+            }
+           
             else
                 pictureBox_EnemyRight.Left -= speed_left;
             #endregion
@@ -180,10 +217,13 @@ namespace Game
             if (pictureBox_EnemyTLC.Bounds.IntersectsWith(pictureBox_PlayerModel.Bounds))
             {
                 pictureBox_EnemyTLC.Location = new Point(56, 12);
+                points++;
+                label_Points.Text = "Points: " + points.ToString();
             }
             if (pictureBox_EnemyTLC.Bounds.IntersectsWith(pictureBox_TowerModel.Bounds))
             {
                 pictureBox_EnemyTLC.Location = new Point(56, 12);
+                DamageTower();
             }
             else
                  {
@@ -196,10 +236,13 @@ namespace Game
             if (pictureBox_EnemyBRC.Bounds.IntersectsWith(pictureBox_PlayerModel.Bounds))
             { 
                 pictureBox_EnemyBRC.Location = new Point(704, 546);
+                points++;
+                label_Points.Text = "Points: " + points.ToString();
             }
             if (pictureBox_EnemyBRC.Bounds.IntersectsWith(pictureBox_TowerModel.Bounds))
             {
                 pictureBox_EnemyBRC.Location = new Point(704, 546);
+                
             }
             else
             {
@@ -218,7 +261,40 @@ namespace Game
 
         }
 
+        private void DamageTower()
+        {
+            int towerHealthMAX = progressBar_TowerHealth.Maximum;           
+
+            if (towerHealth <= 25)
+            {
+                Main.instance.playMusic();
+                Close();
+            }
+            else
+            {
+                towerHealth -= 25;
+                progressBar_TowerHealth.Value -= 25;
+                label_HealthNumeric.Text = towerHealth + "/" + towerHealthMAX.ToString();
+            }
+        }
+
+        private void playMusic()
+        {
+            SoundPlayer music = new SoundPlayer(@"C:\Users\PC\Desktop\WindowsFormsGame\Game\Game\Sound\Music\game_screen.wav");
+            music.Play();
+        }
+
+
+
+
+
+
+
         private void timer_EnemyMoveBack_Tick(object sender, EventArgs e)
+        {
+
+        }
+        private void groupBox1_Enter(object sender, EventArgs e)
         {
 
         }

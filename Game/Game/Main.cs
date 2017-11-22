@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -18,6 +19,7 @@ namespace Game
         {
             InitializeComponent();
             instance = this;
+            playMusic();
         }
 
         private void btn_Quit_Click(object sender, EventArgs e)
@@ -33,25 +35,21 @@ namespace Game
 
         private void btn_Play_Click(object sender, EventArgs e)
         {
-            Hide();
-
             GameWindow gameScreen = new GameWindow();
             gameScreen.Location = Location;
             gameScreen.ShowDialog();
             
         }
 
-        private void btn_Login_Click(object sender, EventArgs e)
-        {
-            Login loginWindow = new Login();
-            loginWindow.Location = new Point(Location.X + (Size.Width / 2) - (loginWindow.Size.Width / 2), Location.Y + (Size.Height / 2) - (loginWindow.Size.Height / 2));
-
-            loginWindow.ShowDialog();
-        }
-
         public void ActivatePlayButton()
         {
             btn_Play.Enabled = true;
+        }
+
+        public void playMusic()
+        {
+            SoundPlayer music = new SoundPlayer(@"C:\Users\PC\Desktop\WindowsFormsGame\Game\Game\Sound\Music\main_screen.wav");
+            music.Play();
         }
     }
 }
