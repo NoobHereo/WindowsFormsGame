@@ -48,7 +48,8 @@ namespace Game
 
         public void playMusic()
         {
-            SoundPlayer music = new SoundPlayer(@"C:\Users\PC\Desktop\WindowsFormsGame\Game\Game\Sound\Music\main_screen.wav");
+            var path = AppDomain.CurrentDomain.BaseDirectory + @"Sound\Music\main_screen.wav";
+            SoundPlayer music = new SoundPlayer(path);
             music.Play();
         }
     }

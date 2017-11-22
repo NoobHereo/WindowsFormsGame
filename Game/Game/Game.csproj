@@ -114,8 +114,12 @@
     <Folder Include="Sound\Effects\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Sound\Music\game_screen.wav" />
-    <Content Include="Sound\Music\main_screen.wav" />
+    <Content Include="Sound\Music\game_screen.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Sound\Music\main_screen.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
