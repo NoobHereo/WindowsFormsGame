@@ -16,10 +16,13 @@ namespace Game
     public partial class Settings : Form
     {
         public static int interval;
+        public static Settings instance;
 
         public Settings()
         {
             InitializeComponent();
+            instance = this;
+            
         }
         public void SetDifficulty(string difficulty)
         {
@@ -64,5 +67,24 @@ namespace Game
             SetDifficulty(difficultySelected);
             Close();
         }
+
+        public bool musicPlaying;
+        private void btn_Music_Click(object sender, EventArgs e)
+        {
+            if (musicPlaying == true)
+            {
+                Main.instance.stopMusic();
+                btn_Music.Text = "On";
+                musicPlaying = false;
+            }
+
+            else if (musicPlaying == false)
+            {
+                Main.instance.startMusic();
+                btn_Music.Text = "Off";
+                musicPlaying = true;
+            }
+        }
+
     }
 }

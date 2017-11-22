@@ -30,9 +30,7 @@
         {
             this.label_Music = new System.Windows.Forms.Label();
             this.label_Difficulty = new System.Windows.Forms.Label();
-            this.label_Sfx = new System.Windows.Forms.Label();
             this.btn_Music = new System.Windows.Forms.Button();
-            this.btn_Sfx = new System.Windows.Forms.Button();
             this.comboBox_Difficulty = new System.Windows.Forms.ComboBox();
             this.btn_Apply = new System.Windows.Forms.Button();
             this.btn_Cancel = new System.Windows.Forms.Button();
@@ -50,20 +48,11 @@
             // label_Difficulty
             // 
             this.label_Difficulty.AutoSize = true;
-            this.label_Difficulty.Location = new System.Drawing.Point(12, 64);
+            this.label_Difficulty.Location = new System.Drawing.Point(12, 30);
             this.label_Difficulty.Name = "label_Difficulty";
             this.label_Difficulty.Size = new System.Drawing.Size(47, 13);
             this.label_Difficulty.TabIndex = 1;
             this.label_Difficulty.Text = "Difficulty";
-            // 
-            // label_Sfx
-            // 
-            this.label_Sfx.AutoSize = true;
-            this.label_Sfx.Location = new System.Drawing.Point(12, 35);
-            this.label_Sfx.Name = "label_Sfx";
-            this.label_Sfx.Size = new System.Drawing.Size(70, 13);
-            this.label_Sfx.TabIndex = 2;
-            this.label_Sfx.Text = "Soundeffects";
             // 
             // btn_Music
             // 
@@ -73,15 +62,7 @@
             this.btn_Music.TabIndex = 3;
             this.btn_Music.Text = "On";
             this.btn_Music.UseVisualStyleBackColor = true;
-            // 
-            // btn_Sfx
-            // 
-            this.btn_Sfx.Location = new System.Drawing.Point(88, 30);
-            this.btn_Sfx.Name = "btn_Sfx";
-            this.btn_Sfx.Size = new System.Drawing.Size(75, 23);
-            this.btn_Sfx.TabIndex = 4;
-            this.btn_Sfx.Text = "On";
-            this.btn_Sfx.UseVisualStyleBackColor = true;
+            this.btn_Music.Click += new System.EventHandler(this.btn_Music_Click);
             // 
             // comboBox_Difficulty
             // 
@@ -91,14 +72,14 @@
             "Easy",
             "Medium",
             "Hard"});
-            this.comboBox_Difficulty.Location = new System.Drawing.Point(66, 64);
+            this.comboBox_Difficulty.Location = new System.Drawing.Point(66, 30);
             this.comboBox_Difficulty.Name = "comboBox_Difficulty";
             this.comboBox_Difficulty.Size = new System.Drawing.Size(121, 21);
             this.comboBox_Difficulty.TabIndex = 5;
             // 
             // btn_Apply
             // 
-            this.btn_Apply.Location = new System.Drawing.Point(199, 108);
+            this.btn_Apply.Location = new System.Drawing.Point(195, 70);
             this.btn_Apply.Name = "btn_Apply";
             this.btn_Apply.Size = new System.Drawing.Size(97, 49);
             this.btn_Apply.TabIndex = 6;
@@ -108,7 +89,7 @@
             // 
             // btn_Cancel
             // 
-            this.btn_Cancel.Location = new System.Drawing.Point(7, 108);
+            this.btn_Cancel.Location = new System.Drawing.Point(3, 70);
             this.btn_Cancel.Name = "btn_Cancel";
             this.btn_Cancel.Size = new System.Drawing.Size(97, 49);
             this.btn_Cancel.TabIndex = 7;
@@ -120,13 +101,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(307, 171);
+            this.ClientSize = new System.Drawing.Size(296, 126);
             this.Controls.Add(this.btn_Cancel);
             this.Controls.Add(this.btn_Apply);
             this.Controls.Add(this.comboBox_Difficulty);
-            this.Controls.Add(this.btn_Sfx);
             this.Controls.Add(this.btn_Music);
-            this.Controls.Add(this.label_Sfx);
             this.Controls.Add(this.label_Difficulty);
             this.Controls.Add(this.label_Music);
             this.Name = "Settings";
@@ -140,9 +119,7 @@
 
         private System.Windows.Forms.Label label_Music;
         private System.Windows.Forms.Label label_Difficulty;
-        private System.Windows.Forms.Label label_Sfx;
         private System.Windows.Forms.Button btn_Music;
-        private System.Windows.Forms.Button btn_Sfx;
         private System.Windows.Forms.ComboBox comboBox_Difficulty;
         private System.Windows.Forms.Button btn_Apply;
         private System.Windows.Forms.Button btn_Cancel;

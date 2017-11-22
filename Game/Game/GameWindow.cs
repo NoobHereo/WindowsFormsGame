@@ -29,7 +29,11 @@ namespace Game
             label_Points.Text = "Points: " + points.ToString();
             label_HealthNumeric.Text = towerHealth + "/" + towerHealthMAX.ToString();
 
-            playMusic();
+
+            if (Settings.instance.musicPlaying)
+                playMusic();
+            else
+                stopMusic();
         }
 
         private enum Direction
@@ -267,7 +271,8 @@ namespace Game
 
             if (towerHealth <= 25)
             {
-                Main.instance.playMusic();
+                stopMusic();
+                Main.instance.startMusic();
                 Close();
             }
             else
@@ -283,6 +288,12 @@ namespace Game
             var path = AppDomain.CurrentDomain.BaseDirectory + @"Sound\Music\game_screen.wav";
             SoundPlayer music = new SoundPlayer(path);
             music.Play();
+        }
+
+        private void stopMusic()
+        {
+            SoundPlayer music = new SoundPlayer();
+            music.Stop();
         }
 
 

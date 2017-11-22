@@ -19,7 +19,6 @@ namespace Game
         {
             InitializeComponent();
             instance = this;
-            playMusic();
         }
 
         private void btn_Quit_Click(object sender, EventArgs e)
@@ -46,11 +45,17 @@ namespace Game
             btn_Play.Enabled = true;
         }
 
-        public void playMusic()
+        public void startMusic()
         {
             var path = AppDomain.CurrentDomain.BaseDirectory + @"Sound\Music\main_screen.wav";
             SoundPlayer music = new SoundPlayer(path);
             music.Play();
+        }
+        public void stopMusic()
+        {
+            SoundPlayer music = new SoundPlayer();
+            music.Stop();
+
         }
     }
 }
