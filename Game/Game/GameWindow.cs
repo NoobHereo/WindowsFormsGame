@@ -15,9 +15,12 @@ namespace Game
 {
     public partial class GameWindow : Form
     {
+        bool testing = true; //This will give the tower unlimited health.
+
         public static GameWindow instance;
         int points = 0;
         int towerHealth = 100;
+        int timeRemain = 60; //Seconds       
 
         public GameWindow()
         {
@@ -28,6 +31,8 @@ namespace Game
 
             label_Points.Text = "Points: " + points.ToString();
             label_HealthNumeric.Text = towerHealth + "/" + towerHealthMAX.ToString();
+
+            label_Time.Text = timeRemain.ToString();
 
 
             if (Settings.instance.musicPlaying)
@@ -75,7 +80,7 @@ namespace Game
                     break;
                 case Keys.Left:
                     _direction |= Direction.Left;
-                    break;
+                    break;               
             }
         }
 
@@ -116,6 +121,7 @@ namespace Game
 
         private void timer_Direction_Tick(object sender, EventArgs e)
         {
+
 
             if ((_direction & Direction.Up) == Direction.Up)
             {
@@ -275,6 +281,10 @@ namespace Game
                 Main.instance.startMusic();
                 Close();
             }
+            if (testing)
+            {
+                return;
+            }
             else
             {
                 towerHealth -= 25;
@@ -308,6 +318,19 @@ namespace Game
         }
         private void groupBox1_Enter(object sender, EventArgs e)
         {
+
+        }
+
+        private void timer_RoundTime_Tick(object sender, EventArgs e)
+        {
+            if (timeRemain <= 0)
+            {
+                timer_Enemies.Stop();
+                timer_RoundTime.Stop();
+            }
+
+            timeRemain--;
+            label_Time.Text = timeRemain.ToString();
 
         }
     }

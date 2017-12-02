@@ -41,11 +41,14 @@
             this.pictureBox_EnemyTLC = new System.Windows.Forms.PictureBox();
             this.timer_EnemyMoveBack = new System.Windows.Forms.Timer(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.progressBar_TowerHealth = new System.Windows.Forms.ProgressBar();
-            this.label_HealthNumeric = new System.Windows.Forms.Label();
-            this.label_Healing = new System.Windows.Forms.Label();
             this.label_Points = new System.Windows.Forms.Label();
+            this.label_Healing = new System.Windows.Forms.Label();
+            this.label_HealthNumeric = new System.Windows.Forms.Label();
+            this.progressBar_TowerHealth = new System.Windows.Forms.ProgressBar();
+            this.label_TowerHealth = new System.Windows.Forms.Label();
+            this.label_TimeLeft = new System.Windows.Forms.Label();
+            this.label_Time = new System.Windows.Forms.Label();
+            this.timer_RoundTime = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_PlayerModel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_EnemyRight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_TowerModel)).BeginInit();
@@ -148,11 +151,13 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label_Time);
+            this.groupBox1.Controls.Add(this.label_TimeLeft);
             this.groupBox1.Controls.Add(this.label_Points);
             this.groupBox1.Controls.Add(this.label_Healing);
             this.groupBox1.Controls.Add(this.label_HealthNumeric);
             this.groupBox1.Controls.Add(this.progressBar_TowerHealth);
-            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.label_TowerHealth);
             this.groupBox1.Location = new System.Drawing.Point(12, 448);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(242, 142);
@@ -161,31 +166,14 @@
             this.groupBox1.Text = "groupBox1";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
-            // label1
+            // label_Points
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 52);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(72, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Tower health:";
-            // 
-            // progressBar_TowerHealth
-            // 
-            this.progressBar_TowerHealth.Location = new System.Drawing.Point(90, 52);
-            this.progressBar_TowerHealth.Name = "progressBar_TowerHealth";
-            this.progressBar_TowerHealth.Size = new System.Drawing.Size(138, 13);
-            this.progressBar_TowerHealth.TabIndex = 1;
-            this.progressBar_TowerHealth.Value = 100;
-            // 
-            // label_HealthNumeric
-            // 
-            this.label_HealthNumeric.AutoSize = true;
-            this.label_HealthNumeric.ForeColor = System.Drawing.Color.Chartreuse;
-            this.label_HealthNumeric.Location = new System.Drawing.Point(143, 36);
-            this.label_HealthNumeric.Name = "label_HealthNumeric";
-            this.label_HealthNumeric.Size = new System.Drawing.Size(0, 13);
-            this.label_HealthNumeric.TabIndex = 2;
+            this.label_Points.AutoSize = true;
+            this.label_Points.Location = new System.Drawing.Point(15, 20);
+            this.label_Points.Name = "label_Points";
+            this.label_Points.Size = new System.Drawing.Size(39, 13);
+            this.label_Points.TabIndex = 5;
+            this.label_Points.Text = "Points:";
             // 
             // label_Healing
             // 
@@ -196,14 +184,55 @@
             this.label_Healing.Size = new System.Drawing.Size(0, 13);
             this.label_Healing.TabIndex = 4;
             // 
-            // label_Points
+            // label_HealthNumeric
             // 
-            this.label_Points.AutoSize = true;
-            this.label_Points.Location = new System.Drawing.Point(15, 20);
-            this.label_Points.Name = "label_Points";
-            this.label_Points.Size = new System.Drawing.Size(39, 13);
-            this.label_Points.TabIndex = 5;
-            this.label_Points.Text = "Points:";
+            this.label_HealthNumeric.AutoSize = true;
+            this.label_HealthNumeric.ForeColor = System.Drawing.Color.Chartreuse;
+            this.label_HealthNumeric.Location = new System.Drawing.Point(143, 36);
+            this.label_HealthNumeric.Name = "label_HealthNumeric";
+            this.label_HealthNumeric.Size = new System.Drawing.Size(0, 13);
+            this.label_HealthNumeric.TabIndex = 2;
+            // 
+            // progressBar_TowerHealth
+            // 
+            this.progressBar_TowerHealth.Location = new System.Drawing.Point(90, 52);
+            this.progressBar_TowerHealth.Name = "progressBar_TowerHealth";
+            this.progressBar_TowerHealth.Size = new System.Drawing.Size(138, 13);
+            this.progressBar_TowerHealth.TabIndex = 1;
+            this.progressBar_TowerHealth.Value = 100;
+            // 
+            // label_TowerHealth
+            // 
+            this.label_TowerHealth.AutoSize = true;
+            this.label_TowerHealth.Location = new System.Drawing.Point(12, 52);
+            this.label_TowerHealth.Name = "label_TowerHealth";
+            this.label_TowerHealth.Size = new System.Drawing.Size(72, 13);
+            this.label_TowerHealth.TabIndex = 0;
+            this.label_TowerHealth.Text = "Tower health:";
+            // 
+            // label_TimeLeft
+            // 
+            this.label_TimeLeft.AutoSize = true;
+            this.label_TimeLeft.Location = new System.Drawing.Point(15, 82);
+            this.label_TimeLeft.Name = "label_TimeLeft";
+            this.label_TimeLeft.Size = new System.Drawing.Size(81, 13);
+            this.label_TimeLeft.TabIndex = 6;
+            this.label_TimeLeft.Text = "Time remaining:";
+            // 
+            // label_Time
+            // 
+            this.label_Time.AutoSize = true;
+            this.label_Time.Location = new System.Drawing.Point(100, 82);
+            this.label_Time.Name = "label_Time";
+            this.label_Time.Size = new System.Drawing.Size(50, 13);
+            this.label_Time.TabIndex = 7;
+            this.label_Time.Text = "time_Left";
+            // 
+            // timer_RoundTime
+            // 
+            this.timer_RoundTime.Enabled = true;
+            this.timer_RoundTime.Interval = 1000;
+            this.timer_RoundTime.Tick += new System.EventHandler(this.timer_RoundTime_Tick);
             // 
             // GameWindow
             // 
@@ -256,8 +285,11 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label_HealthNumeric;
         private System.Windows.Forms.ProgressBar progressBar_TowerHealth;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label_TowerHealth;
         private System.Windows.Forms.Label label_Points;
         private System.Windows.Forms.Label label_Healing;
+        private System.Windows.Forms.Label label_TimeLeft;
+        private System.Windows.Forms.Label label_Time;
+        private System.Windows.Forms.Timer timer_RoundTime;
     }
 }
