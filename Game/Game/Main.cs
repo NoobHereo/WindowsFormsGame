@@ -34,15 +34,10 @@ namespace Game
 
         private void btn_Play_Click(object sender, EventArgs e)
         {
-            GameWindow gameScreen = new GameWindow();
-            gameScreen.Location = Location;
-            gameScreen.ShowDialog();
+            SelectClass classSelectionScreen = new SelectClass();
+            classSelectionScreen.Location = Location;
+            classSelectionScreen.ShowDialog();
             
-        }
-
-        public void ActivatePlayButton()
-        {
-            btn_Play.Enabled = true;
         }
 
         public void startMusic()
