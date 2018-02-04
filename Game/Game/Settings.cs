@@ -15,6 +15,7 @@ namespace Game
 
     public partial class Settings : Form
     {
+        public static int interval;
         public static Settings instance;
 
         public Settings()
@@ -22,6 +23,29 @@ namespace Game
             InitializeComponent();
             instance = this;
             
+        }
+        public void SetDifficulty(string difficulty)
+        {
+
+            switch (difficulty)
+            {
+                case "Easy":
+                    interval = 320;
+                    break;
+
+                case "Medium":
+                    interval = 220;
+                    break;
+
+                case "Hard":
+                    interval = 100;
+                    break;
+
+                default:
+                    interval = 320;
+                    break;
+            }
+
         }
 
 
@@ -37,15 +61,16 @@ namespace Game
                 MessageBox.Show("You must choose a difficulty before playing", "error", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
+            Main.instance.ActivatePlayButton();
             string difficultySelected = comboBox_Difficulty.Text;
+
+            SetDifficulty(difficultySelected);
             Close();
         }
 
         public bool musicPlaying;
         private void btn_Music_Click(object sender, EventArgs e)
         {
-            musicPlaying = false;
-
             if (musicPlaying == true)
             {
                 Main.instance.stopMusic();
