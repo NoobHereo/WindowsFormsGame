@@ -323,13 +323,12 @@ namespace Game
 
         private void timer_RoundTime_Tick(object sender, EventArgs e)
         {
-            if (timeRemain <= 0)
+            timeRemain--;
+            if (timeRemain == 0)
             {
                 timer_Enemies.Stop();
                 timer_RoundTime.Stop();
             }
-
-            timeRemain--;
             label_Time.Text = timeRemain.ToString();
 
         }
